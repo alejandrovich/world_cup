@@ -1,12 +1,12 @@
 import itertools
 import logging
 
-from conferences import check_conference, CONFERENCES
+from conferences import check_conference
 from groups import GROUP_LETTERS, GROUP_SEEDS
-from models import Team, Conference, Pot, Group, Draw
+from models import Pot, Group
 from pots import Pot2, Pot3, Pot4
 
-logging.basicConfig(filename='worldcup.log', level=logging.DEBUG)
+logging.basicConfig(filename='logs/worldcup.log', level=logging.DEBUG)
 _RESULT_COUNT = 0
    
 
@@ -15,16 +15,13 @@ def draw_groups():
     select_group(0, pots, selected_groups=())
 
 
-def select_group(index, pots, selected_groups):
-    if index == len(GROUP_LETTERS):
-        global _RESULT_COUNT
-        
-        _RESULT_COUNT += 1
+def select_group(group_index, pots, selected_groups):
+    if group_index == len(GROUP_LETTERS):
         log_results(selected_groups)
         
         return
 
-    letter = GROUP_LETTERS[index]
+    letter = GROUP_LETTERS[group_index]
     group_seed = GROUP_SEEDS[letter]
     teams_by_pot = tuple(pot.teams for pot in pots)
 
@@ -50,7 +47,7 @@ def select_group(index, pots, selected_groups):
             )
             for pot in pots
         )
-        select_group(index + 1, new_pots, selected_groups + (group,))
+        select_group(group_index + 1, new_pots, selected_groups + (group,))
         
         
 def result_statement(selected_groups):
@@ -68,6 +65,9 @@ def result_statement(selected_groups):
 
     
 def log_results(selected_groups):
+    global _RESULT_COUNT
+    _RESULT_COUNT += 1
+
     output = result_statement(selected_groups)
 
     logging.debug(output)

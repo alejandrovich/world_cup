@@ -55,7 +55,7 @@ CONFERENCES = (
 
 
 def check_conference(group_teams):
-    conference_count = {
+    counts_by_conference = {
         conference: len(
             tuple(
                 team for team in group_teams
@@ -67,5 +67,5 @@ def check_conference(group_teams):
 
     return all(
         conference.max_teams >= num_teams
-        for conference, num_teams in conference_count.iteritems()
+        for conference, num_teams in counts_by_conference.iteritems()
     )

@@ -1,10 +1,9 @@
 from models import Team
 
 
-Russia = Team(name='Russia', rank=65)
 Germany = Team(name='Germany', rank=1)
-Portugal = Team(name='Portugal', rank=3)
 Brazil = Team(name='Brazil', rank=2)
+Portugal = Team(name='Portugal', rank=3)
 Argentina = Team(name='Argentina', rank=4)
 Belgium = Team(name='Belgium', rank=5)
 Poland = Team(name='Poland', rank=6)
@@ -18,8 +17,8 @@ Mexico = Team(name='Mexico', rank=16)
 Uruguay = Team(name='Uruguay', rank=17)
 Croatia = Team(name='Croatia', rank=18)
 Denmark = Team(name='Denmark', rank=19)
-CostaRica = Team(name='Costa Rica', rank=22)
 Iceland = Team(name='Iceland', rank=21)
+CostaRica = Team(name='Costa Rica', rank=22)
 Sweden = Team(name='Sweden', rank=25)
 Tunisia = Team(name='Tunisia', rank=28)
 Egypt = Team(name='Egypt', rank=30)
@@ -33,5 +32,6 @@ Morocco = Team(name='Morocco', rank=48)
 Panama = Team(name='Panama', rank=49)
 SouthKorea = Team(name='South Korea', rank=62)
 SaudiArabia = Team(name='Saudi Arabia', rank=63)
+Russia = Team(name='Russia', rank=65)
 
 HOST_NATION = Russia
